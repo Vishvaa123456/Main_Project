@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
 
+
 function Header() {
   return (
     <div className="flex justify-center bg-emerald-500 rounded-lg ">
@@ -16,10 +17,8 @@ function Header() {
 function Camera() {
   const webcamref = useRef(null);
   let [imgsrc, setimgsrc] = useState(null);
-  let [cam_on, set_cam] = useState("absolute -z-10 top-1/4 left-1/4 hidden");
-  let [photo_hide, set_photo] = useState(
-    "absolute -z-10 top-1/4 left-1/4 hidden"
-  );
+  let [cam_on, set_cam] = useState("absolute -z-10 top-1/4 hidden");
+  let [photo_hide, set_photo] = useState("absolute -z-10 top-1/4 hidden");
 
   const capture = useCallback(() => {
     const imagesrc = webcamref.current.getScreenshot();
@@ -34,7 +33,7 @@ function Camera() {
           ref={webcamref}
           disablePictureInPicture={true}
           screenshotFormat="image/jpeg"
-          //className={camera}
+        //className={camera}
         />
         <br />
 
@@ -43,8 +42,8 @@ function Camera() {
           <button
             className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out "
             onClick={() => {
-              set_cam("absolute -z-10 top-1/4 left-1/4 hidden");
-              set_photo("absolute z-10 top-1/4 left-1/4 visible");
+              set_cam("absolute -z-20 top-1/4 hidden");
+              set_photo("absolute z-20 top-1/4 visible");
               capture();
             }}
           >
@@ -52,6 +51,19 @@ function Camera() {
             &nbsp; capture &nbsp;{" "}
           </button>
         </div>
+          <br />
+        <div className="flex justify-center">
+          <button
+            className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out "
+            onClick={() => {
+              set_cam("absolute z-10 top-1/4 hidden");
+              set_photo("absolute -z-10 top-1/4 hidden");
+            }}
+          >
+            &nbsp; exit &nbsp;
+          </button>
+        </div>
+
       </div>
 
       <div className={photo_hide}>
@@ -64,13 +76,26 @@ function Camera() {
           <button
             className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out "
             onClick={() => {
-              set_cam("absolute z-10 top-1/4 left-1/4 visible");
-              set_photo("absolute -z-10 top-1/4 left-1/4 hidden");
+              set_cam("absolute z-10 top-1/4 visible");
+              set_photo("absolute -z-10 top-1/4 hidden");
             }}
           >
             &nbsp; retake &nbsp;
           </button>
         </div>
+
+        <div className="flex justify-center">
+          <button
+            className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out "
+            onClick={() => {
+              set_cam("absolute z-10 top-1/4 hidden");
+              set_photo("absolute -z-10 top-1/4 hidden");
+            }}
+          >
+            &nbsp; exit &nbsp;
+          </button>
+        </div>
+
       </div>
 
       <br />
@@ -79,8 +104,7 @@ function Camera() {
           className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out"
           onClick={() => {
             console.log("image capturing1");
-            set_cam("absolute z-10 top-1/4 left-1/4 visible");
-
+            set_cam("absolute z-10 top-1/4 visible");
             console.log("image capturing2");
           }}
         >
@@ -91,7 +115,14 @@ function Camera() {
   );
 }
 
+
 function Detection() {
+
+  let [showresult,hideresult]=useState(" rounded-lg w-6/12 h-3/6 border-8 bg-slate-300 text-emerald-900 absolute z-20 top-1/4 hidden")
+  let percent=90;
+  let obj='Gun';
+
+
   const [photoName, setPhotoName] = useState(
     "https://media.licdn.com/dms/image/D4D03AQFlGHHCUMm-uw/profile-displayphoto-shrink_200_200/0/1676988212774?e=2147483647&v=beta&t=GyLodlN1-Nv0SSTGmQj7_qB-VTgCTjXWylSXBunkRgc"
   );
@@ -162,14 +193,31 @@ function Detection() {
 
           <br />
           <Camera />
+          <br />
+          <div className="flex justify-center">
+            <div>
+              <button className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out"  onClick={()=>{hideresult(" rounded-lg w-6/12 h-3/6 border-8 bg-slate-300 text-emerald-900 absolute z-20 top-1/4 visible")}}>
+                &nbsp; Send &nbsp;
+              </button>
+            </div>
+            <div className={showresult}>
+    <div className="flex justify-end block ">
+    <div className="uppercase p-1 animate-bounce cursor-pointer" onClick={() => {hideresult("rounded-lg w-6/12 h-3/6 border-8 bg-slate-300 text-emerald-900 absolute z-20 top-1/4 hidden")}}>x</div>
+    </div>
+    <br />
+    <div className="p-3 font-serif text-5xl font-extrabold tracking-widest">
+    <div className="uppercase">object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {obj}</div>
+    <div className="uppercase">percentage&nbsp;&nbsp; : {percent} %</div>
+    </div>
+  </div>
+          </div>
         </div>
-
         <br />
       </div>
     </div>
   );
 }
-function Footer() {}
+function Footer() { }
 
 function App() {
   return (
