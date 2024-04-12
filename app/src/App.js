@@ -119,10 +119,10 @@ function Camera() {
 function Detection() {
 
   let [showresult,hideresult]=useState(" rounded-lg w-6/12 h-3/6 border-8 bg-slate-300 text-emerald-900 absolute z-20 top-1/4 hidden")
-  let percent=90;
-  let obj='Gun';
+  let [percent,setpercent]=useState(90);
+  let [obj,setobj]=useState('Gun');
 
-
+  const [file,setfile]=useState(null)
   const [photoName, setPhotoName] = useState(
     "https://media.licdn.com/dms/image/D4D03AQFlGHHCUMm-uw/profile-displayphoto-shrink_200_200/0/1676988212774?e=2147483647&v=beta&t=GyLodlN1-Nv0SSTGmQj7_qB-VTgCTjXWylSXBunkRgc"
   );
@@ -132,13 +132,18 @@ function Detection() {
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
+    setfile(file)
     setPhotoName(file.name);
     const reader = new FileReader();
     reader.onload = () => {
       setPhotoPreview(reader.result);
     };
+   // console.log(reader.result)
     reader.readAsDataURL(file);
   };
+  
+
+
 
   return (
     <div className="flex justify-center ">
@@ -196,7 +201,33 @@ function Detection() {
           <br />
           <div className="flex justify-center">
             <div>
-              <button className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out"  onClick={()=>{hideresult(" rounded-lg w-6/12 h-3/6 border-8 bg-slate-300 text-emerald-900 absolute z-20 top-1/4 visible")}}>
+              <button className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out"  onClick={async()=>{
+                const formData = new FormData();
+                formData.append('image', file);
+                //console.log(file)
+                //console.log("formdata")
+                let res=0
+                try{
+                 res = await fetch('https://expert-space-giggle-56gqpxvxrvq346vw-8000.app.github.dev/upload_image',  {
+                  //res = await fetch('https://api.jsonbin.io/v3/qs/661923e9ad19ca34f858ca09',  {
+                  method:"POST",
+                  body:formData,
+                 // mode:"no-cors"
+                });
+                if(res.ok){
+                  let x=await res.json();
+                  console.log(x.status)
+                  setobj(x.status)
+                  console.log(x.message)
+                  setpercent(x.message)
+                }
+                
+               }catch(e){
+              //console.log(res.json)
+              //console.log(res)
+               }
+
+                hideresult(" rounded-lg w-6/12 h-3/6 border-8 bg-slate-300 text-emerald-900 absolute z-20 top-1/4 visible")}}>
                 &nbsp; Send &nbsp;
               </button>
             </div>
