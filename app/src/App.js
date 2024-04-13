@@ -23,6 +23,7 @@ function Camera() {
   const capture = useCallback(() => {
     const imagesrc = webcamref.current.getScreenshot();
     setimgsrc(imagesrc);
+    localStorage.setItem("myimage", webcamref.current.getScreenshot());
   }, [webcamref, setimgsrc]);
 
   return (
@@ -203,7 +204,30 @@ function Detection() {
             <div>
               <button className="rounded-full  border-4 hover:border-8  border-x-emerald-500 hover:ease-in-out"  onClick={async()=>{
                 const formData = new FormData();
-                formData.append('image', file);
+                if(file!==null){
+                  console.log(file)
+                  formData.append('image', file);}
+                else{
+                  let b=localStorage.getItem("myimage")
+                  function dataURLtoBlob(dataURL) {
+                    var arr = dataURL.split(','),
+                        mime = arr[0].match(/:(.*?);/)[1],
+                        bstr = atob(arr[1]),
+                        n = bstr.length,
+                        u8arr = new Uint8Array(n);
+                    while (n--) {
+                        u8arr[n] = bstr.charCodeAt(n);
+                    }
+                    return new Blob([u8arr], { type: mime });
+                }
+                const blobImage = dataURLtoBlob(b);    
+                const file2 = new File([blobImage], 'screenshot.jpg', { type: 'image/jpeg', lastModified: Date.now() });
+            
+                  console.log(file2)
+                  formData.append('image',file2)
+                  
+                }
+                
                 //console.log(file)
                 //console.log("formdata")
                 let res=0
