@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SEM-8-REACT-APP/static/css/main.e0684e4c.css",
+    "main.js": "/SEM-8-REACT-APP/static/js/main.85592af1.js",
+    "static/js/453.a6a97343.chunk.js": "/SEM-8-REACT-APP/static/js/453.a6a97343.chunk.js",
+    "index.html": "/SEM-8-REACT-APP/index.html",
+    "main.e0684e4c.css.map": "/SEM-8-REACT-APP/static/css/main.e0684e4c.css.map",
+    "main.85592af1.js.map": "/SEM-8-REACT-APP/static/js/main.85592af1.js.map",
+    "453.a6a97343.chunk.js.map": "/SEM-8-REACT-APP/static/js/453.a6a97343.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0684e4c.css",
+    "static/js/main.85592af1.js"
+  ]
+}
