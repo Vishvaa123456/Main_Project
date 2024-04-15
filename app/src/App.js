@@ -120,8 +120,8 @@ function Camera() {
 function Detection() {
 
   let [showresult,hideresult]=useState(" rounded-lg w-6/12 h-3/6 border-8 bg-slate-300 text-emerald-900 absolute z-20 top-1/4 hidden")
-  let [percent,setpercent]=useState(90);
-  let [obj,setobj]=useState('Gun');
+  let [percent,setpercent]=useState(null);
+  let [obj,setobj]=useState(null);
 
   const [file,setfile]=useState(null)
   const [photoName, setPhotoName] = useState(
@@ -232,7 +232,7 @@ function Detection() {
                 //console.log("formdata")
                 let res=0
                 try{
-                 res = await fetch('https://expert-space-giggle-56gqpxvxrvq346vw-8000.app.github.dev/upload_image',  {
+                 res = await fetch('https://symmetrical-telegram-669g74v447j24wjw-8000.app.github.dev//upload_image',  {
                   //res = await fetch('https://api.jsonbin.io/v3/qs/661923e9ad19ca34f858ca09',  {
                   method:"POST",
                   body:formData,
@@ -261,8 +261,8 @@ function Detection() {
     </div>
     <br />
     <div className="p-3 font-serif text-5xl font-extrabold tracking-widest">
-    <div className="uppercase">object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {obj}</div>
-    <div className="uppercase">percentage&nbsp;&nbsp; : {percent} %</div>
+    <div className="uppercase">object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {obj}</div>
+    <div className="uppercase">percentage&nbsp; : {percent} %</div>
     </div>
   </div>
           </div>
@@ -272,7 +272,7 @@ function Detection() {
     </div>
   );
 }
-function Footer() { }
+
 
 function App() {
   return (
