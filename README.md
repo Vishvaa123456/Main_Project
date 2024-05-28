@@ -1,4 +1,4 @@
-1. [Image1]
+![Slide1](https://github.com/nitharshanv/phishing-detection-with-browser-plugin/assets/115967810/93fc8bbb-9155-4e1d-b0ed-d43cd94167ed)
 2. [Slide 2](https://raw.githubusercontent.com/nitharshanv/sem-8-react-app/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide2.PNG)
 3. [Slide 3](images/Slide3.png)
 4. [Slide 4](images/Slide4.png)
