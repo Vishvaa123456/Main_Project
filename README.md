@@ -1,4 +1,4 @@
-1. [Slide 1](images/Slide1.png)
+1. [Slide 1](images/Slide1.PNG)
 2. [Slide 2](images/Slide2.png)
 3. [Slide 3](images/Slide3.png)
 4. [Slide 4](images/Slide4.png)
