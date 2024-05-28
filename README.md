@@ -1,4 +1,4 @@
-1. [Slide 1](images/Slide1.PNG)
+1. [Image1](https://github.com/nitharshanv/sem-8-react-app/blob/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide1.PNG)
 2. [Slide 2](images/Slide2.png)
 3. [Slide 3](images/Slide3.png)
 4. [Slide 4](images/Slide4.png)
