@@ -1,5 +1,5 @@
-1. [Image1]([https://github.com/nitharshanv/sem-8-react-app/blob/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide1.PNG](https://github.com/nitharshanv/sem-8-react-app/blob/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide1.PNG?raw=true))
-2. [Slide 2]([images/Slide2.png](https://github.com/nitharshanv/sem-8-react-app/blob/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide2.PNG?raw=true))
+1. [Image1](https://github.com/nitharshanv/sem-8-react-app/blob/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide1.PNG](https://github.com/nitharshanv/sem-8-react-app/blob/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide1.PNG?raw=true)
+2. [Slide 2](images/Slide2.png](https://github.com/nitharshanv/sem-8-react-app/blob/39d57c9c02c2051bfebba61154da893e82c4f3f1/images/Slide2.PNG?raw=true)
 3. [Slide 3](images/Slide3.png)
 4. [Slide 4](images/Slide4.png)
 5. [Slide 5](images/Slide5.png)
